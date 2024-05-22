@@ -10,7 +10,9 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(/De-Errand-Xpress/web_static/images/jacopo-maia--gOUx23DNks-unsplash.jpg);
+    background: url(/De-Errand-Xpress/web_static/images/jacopo-maia--gOUx23DNks-unsplash.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 header{
