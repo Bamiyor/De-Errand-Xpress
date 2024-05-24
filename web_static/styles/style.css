@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(/De-Errand-Xpress/web_static/images/jacopo-maia--gOUx23DNks-unsplash.jpg) no-repeat;
+    /*background: url(/De-Errand-Xpress/web_static/images/jacopo-maia--gOUx23DNks-unsplash.jpg) no-repeat;*/
     background-size: cover;
     background-position: center;
 }
@@ -78,4 +78,24 @@ header{
 .navigation .Login-popup:hover{
     background: #fff;
     color: black;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, rgba(240, 133, 10, 0.9), rgba(69, 231, 29, 0.8),#d2001a, #7462ff);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }
