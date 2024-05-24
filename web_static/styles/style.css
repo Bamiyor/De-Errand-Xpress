@@ -1,91 +1,20 @@
-*{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+/* Base styles */
+html, body{
     margin: 0;
     padding: 0;
+    height: 100%;
     box-sizing: border-box;
 }
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /*background: url(/De-Errand-Xpress/web_static/images/jacopo-maia--gOUx23DNks-unsplash.jpg) no-repeat;*/
-    background-size: cover;
-    background-position: center;
-}
-
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-}
-
-.logo{
-    font-size: 2em;
-    color: beige;
-    user-select: none;
-}
-
-.navigation a{
-    position: relative;
-    font-size: 1.1em;
-    color: aliceblue;
-    text-decoration: none;
-    font-weight: 400;
-    margin-left: 40px;
-}
-
-.navigation a::after{
-    content: '' ;
-    position: absolute;
-    height: 3px;
-    width: 100px;
-    left: 0;
-    bottom: -6px;
-    background: #fff;
-    border-radius: 4px;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .5s;
-}
-
-.navigation a:hover::after{
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-.navigation .Login-popup{
-    width: 120px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-left: 30px;
-}
-
-.navigation .Login-popup:hover{
-    background: #fff;
-    color: black;
-}
-
-.container{
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(45deg, rgba(240, 133, 10, 0.9), rgba(69, 231, 29, 0.8),#d2001a, #7462ff);
-    background-size: 300% 300%;
+body {
+    font-family: Arial, sans-serif; 
+    background: linear-gradient(45deg, rgba(240, 133, 10, 0.9), rgba(69, 231, 29, 0.8),#d2001a, #7462ff) no-repeat;
+    background-size: 400% 400%;
     animation: color 12s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    min-height: 100vh;
+
 }
 
 @keyframes color{
@@ -97,5 +26,90 @@ header{
     }
     100%{
         background-position: 0 50%;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: #333;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5em;
+}
+
+header .navigation {
+    display: flex;
+    align-items: center;
+}
+
+header .navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+header .navigation .Login-popup {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .navigation .Login-popup:hover {
+    background-color: #ddd;
+}
+
+.container {
+    text-align: center;
+    padding: 5em 2em;
+   /* background-color: #f4f4f4;*/
+}
+
+.container h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .navigation {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .navigation a, header .navigation .Login-popup {
+        margin: 0.5em 0;
+    }
+
+    .container h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.2em;
+    }
+
+    header .navigation a, header .navigation .Login-popup {
+        font-size: 0.9em;
+    }
+
+    .container h1 {
+        font-size: 1.5em;
     }
 }
