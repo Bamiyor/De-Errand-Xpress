@@ -2,11 +2,7 @@
 """
 Contains the class FileStorage
 """
-from errand_models.cart import Cart
-from errand_models.product import Product
-from errand_models.user import User
-from errand_models.errand import Errand, BaseModel
-
+from errand_models import Cart, Product, User
 import json
 from os import path
 from hashlib import md5
@@ -69,7 +65,7 @@ class FileStorage:
             return None
         all_cls = errand_models.storage.all(cls)
         for value in all_cls.values():
-            if (value.id == id):
+            if value.id == id:
                 return value
         return None
 

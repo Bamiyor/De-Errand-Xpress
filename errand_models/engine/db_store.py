@@ -1,33 +1,11 @@
-""""
-from flask_sqlalchemy import SQLAlchemy
-from errand_models.user import User
-from errand_models.product import Product
-from errand_models.cart import Cart
+#!/usr/bin/python3
 from os import getenv
-import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from errand_models.errand_models import Errand
-"""
-
-
-
-from os import getenv
-from errand_models.cart import Cart
-from errand_models.product import Product
-from errand_models.user import User
-from errand_models.errand import Errand, Base
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
-from errand_models.errand_models import Base
-import models
-# import errand_models
-
+from errand_models import Base, Cart, User, Product  # Corrected import path
 
 classes = {"Cart": Cart, "Product": Product, "User": User}
 
-# db = SQLAlchemy()
 class DBStorage:
     """Interacts with the MySQL database"""
     __engine = None
@@ -35,13 +13,13 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
-        HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
-        HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
-        HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
-        HBNB_ENV = getenv('HBNB_ENV')
-        self.__engine = create_engine(f'mysql+mysqldb://{HBNB_MYSQL_USER}:{HBNB_MYSQL_PWD}@{HBNB_MYSQL_HOST}/{HBNB_MYSQL_DB}')
-        if HBNB_ENV == "test":
+        EXPRESS_MYSQL_USER = getenv('EXPRESS_MYSQL_USER')
+        EXPRESS_MYSQL_PWD = getenv('EXPRESS_MYSQL_PWD')
+        EXPRESS_MYSQL_HOST = getenv('EXPRESS_MYSQL_HOST')
+        EXPRESS_MYSQL_DB = getenv('EXPRESS_MYSQL_DB')
+        EXPRESS_ENV = getenv('EXPRESS_ENV')
+        self.__engine = create_engine(f'mysql+mysqldb://{EXPRESS_MYSQL_USER}:{EXPRESS_MYSQL_PWD}@{EXPRESS_MYSQL_HOST}/{EXPRESS_MYSQL_DB}')
+        if EXPRESS_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
@@ -85,7 +63,7 @@ class DBStorage:
             return None
         all_cls = models.storage.all(cls)
         for value in all_cls.values():
-            if (value.id == id):
+            if value.id == id:
                 return value
         return None
 

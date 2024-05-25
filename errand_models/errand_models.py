@@ -1,21 +1,23 @@
 #!/usr/bin/python3
 from datetime import datetime
 from os import getenv
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String, DateTime, Text, Float
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
+from sqlalchemy.orm import relationship, Integer, ForeignKey
+from hashlib import md5
 import models
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
-if getenv("HBNB_TYPE_STORAGE") == "db":
+if getenv("EXPRESS_TYPE_STORAGE") == "db":
     Base = declarative_base()
 else:
     Base = object
 
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
-    if getenv("HBNB_TYPE_STORAGE") == "db":
+    if getenv("EXPRESS_TYPE_STORAGE") == "db":
         id = Column(String(60), primary_key=True)
         created_at = Column(DateTime, default=datetime.utcnow)
         updated_at = Column(DateTime, default=datetime.utcnow)
@@ -69,3 +71,46 @@ class BaseModel:
     def delete(self):
         """Deletes the current instance from the storage"""
         models.storage.delete(self)
+
+class Errand(BaseModel, Base):
+    """Representation of an Errand"""
+    __tablename__ = 'errands'
+    id = Column(String(60), primary_key=True, nullable=False)
+    name = Column(String(100), nullable=False)
+    description = Column(Text)
+    price = Column(Float)
+
+class User(BaseModel, Base):
+    """Representation of a user """
+    __tablename__ = 'users'
+    id = Column(String(60), primary_key=True, nullable=False)
+    name = Column(String(128), nullable=False)
+    email = Column(String(128), nullable=False, unique=True)
+    password = Column(String(128), nullable=False)
+    carts = relationship("Cart", backref="user")
+
+    def __init__(self, *args, **kwargs):
+        """initializes user"""
+        super().__init__(*args, **kwargs)
+
+    def __setattr__(self, name, value):
+        """sets a password with md5 encryption"""
+        if name == "password":
+            value = md5(value.encode()).hexdigest()
+        super().__setattr__(name, value)
+
+class Product(BaseModel, Base):
+    """Representation of a product"""
+    __tablename__ = 'products'
+    id = Column(String(60), primary_key=True, nullable=False)
+    name = Column(String(128), nullable=False)
+    price = Column(Float, nullable=False)
+    image_url = Column(String(256))
+
+class Cart(BaseModel, Base):
+    """Representation of a cart"""
+    __tablename__ = 'carts'
+    id = Column(String(60), primary_key=True, nullable=False)
+    user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+    product_id = Column(String(60), ForeignKey('products.id'), nullable=False)
+    quantity = Column(Integer, nullable=False)
