@@ -1,0 +1,15 @@
+Deletes a cart
+---
+tags:
+  - Carts
+parameters:
+  - name: cart_id
+    in: path
+    type: string
+    required: true
+    description: The unique id of the cart
+responses:
+  404:
+    description: cart not found!
+  200:
+    description: request executed successfully

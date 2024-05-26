@@ -1,0 +1,37 @@
+updates product information
+---
+tags:
+  - Products
+parameters:
+  - name: product_id
+    in: path
+    type: string
+    required: true
+    description: The id of the product to update
+  - name: update_request
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          description: product name
+        description:
+          type: string
+          description: product description
+        price:
+          type: number
+          format: float
+          description: product price
+        stock:
+          type: integer
+          description: product stock quantity
+
+responses:
+  404:
+    description: product not found!
+  200:
+    description: request executed successfully
+    schema:
+      $ref: '#/definitions/Product'

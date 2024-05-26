@@ -1,0 +1,11 @@
+retrieves a list of all products
+---
+tags:
+  - Products
+responses:
+  200:
+    description: request executed successfully
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Product'

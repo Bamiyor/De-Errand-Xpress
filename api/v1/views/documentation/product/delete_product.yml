@@ -1,0 +1,15 @@
+Deletes a product
+---
+tags:
+  - Products
+parameters:
+  - name: product_id
+    in: path
+    type: string
+    required: true
+    description: The unique id of the product
+responses:
+  404:
+    description: product not found!
+  200:
+    description: request executed successfully

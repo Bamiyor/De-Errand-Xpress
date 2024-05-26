@@ -1,0 +1,33 @@
+posts a new cart
+---
+tags:
+  - Carts
+parameters:
+  - name: cart_data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - user_id
+        - product_ids
+      properties:
+        user_id:
+          type: string
+          description: ID of the user
+        product_ids:
+          type: array
+          items:
+            type: string
+          description: List of product IDs
+        quantity:
+          type: integer
+          description: Quantity of products
+
+responses:
+  400:
+    description: Missing fields or not a JSON
+  201:
+    description: successfully created cart
+    schema:
+      $ref: '#/definitions/Cart'

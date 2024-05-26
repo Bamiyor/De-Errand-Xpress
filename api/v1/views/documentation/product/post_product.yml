@@ -1,0 +1,33 @@
+posts a new product
+---
+tags:
+  - Products
+parameters:
+  - name: product_data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - name
+        - description
+        - price
+        - stock
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        stock:
+          type: integer
+
+responses:
+  400:
+    description: Missing fields or not a JSON
+  201:
+    description: successfully created product
+    schema:
+      $ref: '#/definitions/Product'

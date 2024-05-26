@@ -1,0 +1,17 @@
+retrieves a specific cart
+---
+tags:
+  - Carts
+parameters:
+  - name: cart_id
+    in: path
+    type: string
+    required: true
+    description: The id of the cart to retrieve
+responses:
+  404:
+    description: cart not found!
+  200:
+    description: request executed successfully
+    schema:
+      $ref: '#/definitions/Cart'

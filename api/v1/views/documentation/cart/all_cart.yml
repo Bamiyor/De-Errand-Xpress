@@ -1,0 +1,11 @@
+retrieves a list of all carts
+---
+tags:
+  - Carts
+responses:
+  200:
+    description: request executed successfully
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Cart'
