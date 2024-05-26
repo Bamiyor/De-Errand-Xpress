@@ -2,9 +2,7 @@
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from errand_models import Base, Cart, User, Product  # Corrected import path
-
-classes = {"Cart": Cart, "Product": Product, "User": User}
+from errand_models import Base, Cart, Product, User # Corrected import path
 
 class DBStorage:
     """Interacts with the MySQL database"""
@@ -24,6 +22,9 @@ class DBStorage:
 
     def all(self, cls=None):
         """Query on the current database session"""
+        from errand_models.errand_models import Cart, Product, User  # Local import to avoid circular import
+        classes = {"Cart": Cart, "Product": Product, "User": User}
+        
         new_dict = {}
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
@@ -59,9 +60,8 @@ class DBStorage:
 
     def get(self, cls, id):
         """Returns the object based on the class name and its ID, or None if not found"""
-        if cls not in classes.values():
-            return None
-        all_cls = models.storage.all(cls)
+        from errand_models import storage  # Local import to avoid circular import
+        all_cls = storage.all(cls)
         for value in all_cls.values():
             if value.id == id:
                 return value
@@ -69,11 +69,12 @@ class DBStorage:
 
     def count(self, cls=None):
         """Count the number of objects in storage"""
-        all_class = classes.values()
+        from errand_models import storage  # Local import to avoid circular import
+        all_class = [Cart, Product, User]
         if not cls:
             count = 0
             for clas in all_class:
-                count += len(models.storage.all(clas).values())
+                count += len(storage.all(clas).values())
         else:
-            count = len(models.storage.all(cls).values())
+            count = len(storage.all(cls).values())
         return count

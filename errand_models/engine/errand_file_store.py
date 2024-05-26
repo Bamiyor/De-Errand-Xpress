@@ -2,13 +2,10 @@
 """
 Contains the class FileStorage
 """
-from errand_models import Cart, Product, User
 import json
 from os import path
 from hashlib import md5
 import errand_models
-
-classes = {"Cart": Cart, "Product": Product, "User": User}
 
 class FileStorage:
     """Serializes instances to a JSON file & deserializes back to instances"""
@@ -41,6 +38,9 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
+        from errand_models.errand_models import Cart, Product, User  # Local import to avoid circular import
+        classes = {"Cart": Cart, "Product": Product, "User": User}
+        
         if not path.exists(self.__file_path):
             return
         with open(self.__file_path, 'r') as f:
@@ -61,8 +61,6 @@ class FileStorage:
 
     def get(self, cls, id):
         """Returns the object based on the class name and its ID, or None if not found"""
-        if cls not in classes.values():
-            return None
         all_cls = errand_models.storage.all(cls)
         for value in all_cls.values():
             if value.id == id:
@@ -71,7 +69,7 @@ class FileStorage:
 
     def count(self, cls=None):
         """Count the number of objects in storage"""
-        all_class = classes.values()
+        all_class = [Cart, Product, User]
         if not cls:
             count = 0
             for clas in all_class:
