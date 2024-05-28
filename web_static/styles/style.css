@@ -1,185 +1,202 @@
-/* Base styles */
-html, body {
-    height: 100%;
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, rgba(240, 133, 10, 0.9), rgba(69, 231, 29, 0.8), #d2001a, #7462ff) no-repeat;
-    background-size: 400% 400%;
-    animation: color 12s ease-in-out infinite;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
-}
-
-@keyframes color {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
+    line-height: 1.6;
 }
 
 header {
+    background: url("/De-Errand-Xpress/web_static/images/gary-sandoz-IJtP_pWrMvM-unsplash\ \(1\).jpg") no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em;
-    background-color: #333;
-    color: white;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
 }
 
-header .logo {
-    font-size: 1.5em;
-}
-
-header .navigation {
+.nav-links {
+    list-style: none;
     display: flex;
-    align-items: center;
 }
 
-header .navigation a {
-    color: white;
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
     text-decoration: none;
-    margin: 0 1em;
+    font-size: 1.1rem;
 }
 
-header .navigation .Login-popup {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 0.5em 1em;
-    margin-left: 1em;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
 }
 
-header .navigation .Login-popup:hover {
-    background-color: #ddd;
-}
-
-.container {
+.hero {
     text-align: center;
-    padding: 5em 2em;
-    flex: 1; /* Ensures the container takes available space */
+    margin-top: 10%;
 }
 
-.container h1 {
-    font-size: 2.5em;
-    margin: 0;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-/* Media Queries */
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: #ff4b2b;
+    color: #fff;
+    padding: 0.7rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.cta-button:hover {
+    background: #ff1a1a;
+}
+
+.login-button {
+  background: #0f0f0f;
+  color: #0a0909;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.login-button:hover {
+  background: #ff1a1a;
+}
+
+section {
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.service-card {
+    background: #f4f4f4;
+    padding: 1.5rem;
+    margin: 1rem;
+    flex-basis: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 2rem 5%;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex-basis: 30%;
+    margin-bottom: 1rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+    font-size: 0.9rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    header {
+    .nav-links {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 1em;
-    }
-
-    .nav-toggle {
-        display: none;
-    }
-
-    .nav-toggle-label {
-        display: block;
-        cursor: pointer;
-        position: relative;
-        width: 30px;
-        height: 30px;
-    }
-
-    .nav-toggle-label span,
-    .nav-toggle-label span::before,
-    .nav-toggle-label span::after {
-        display: block;
-        background-color: white;
-        height: 3px;
-        width: 100%;
-        border-radius: 2px;
         position: absolute;
-        transition: all 0.3s ease;
-    }
-
-    .nav-toggle-label span::before {
-        content: '';
-        top: -8px;
-    }
-
-    .nav-toggle-label span::after {
-        content: '';
-        top: 8px;
-    }
-
-    .nav-toggle:checked + .nav-toggle-label span {
-        background-color: transparent;
-    }
-
-    .nav-toggle:checked + .nav-toggle-label span::before {
-        transform: rotate(45deg);
-        top: 0;
-    }
-
-    .nav-toggle:checked + .nav-toggle-label span::after {
-        transform: rotate(-45deg);
-        top: 0;
-    }
-
-    .navigation {
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
         display: none;
-        flex-direction: column;
-        width: 100%;
     }
 
-    .nav-toggle:checked ~ .navigation {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: #333;
-        padding: 1em 0;
-    }
-    header .navigation a, header .navigation .Login-popup {
-        font-size: 0.9em;
-    }
-
-    header .navigation {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1em;
-    }
-
-    header .navigation a, header .navigation .Login-popup {
-        margin: 0.5em 0;
-        width: 100%;
+    .nav-links li {
+        margin: 1rem 0;
         text-align: center;
-        padding: 0.5em 0;
     }
 
-    .container h1 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    header .logo {
-        font-size: 1.2em;
-    }
-    
-    header .navigation a, header .navigation .Login-popup{
-        font-size: 0.9em;
-    }
-    .container h1 {
-        font-size: 1.5em;
+    .menu-icon {
+        display: block;
     }
 }
