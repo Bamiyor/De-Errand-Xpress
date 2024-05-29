@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background: url("/De-Errand-Xpress/web_static/images/gary-sandoz-IJtP_pWrMvM-unsplash\ \(1\).jpg") no-repeat center center/cover;
+    background: url("/web_static/images/gary-sandoz-IJtP_pWrMvM-unsplash\ \(1\).jpg") no-repeat center center/cover;
     color: #fff;
     height: 100vh;
 }
@@ -112,11 +112,11 @@ p {
 }
 
 .service-card {
-    background: #f4f4f4;
+    background: #11cd4c;
     padding: 1.5rem;
     margin: 1rem;
     flex-basis: 45%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(22, 10, 10, 0.1);
     border-radius: 5px;
 }
 
@@ -126,8 +126,8 @@ p {
 }
 
 footer {
-    background: #333;
-    color: #fff;
+    background: #1a0505;
+    color: #14d83b;
     padding: 2rem 5%;
     text-align: left;
 }

@@ -46,17 +46,27 @@ h1 {
   margin-bottom: 20px;
 }
 
-#payment-form img {
+.payment-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payment-form span {
   display: block;
-  margin: 0 auto 20px auto;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.payment-form img {
+  display: inline-block;
   height: 34px;
   filter: drop-shadow(0 0 1px #000);
 }
-
 button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background: #8175d3;
+  background: #d37575;
   border: none;
   outline: none;
   border-radius: 6px;
@@ -68,3 +78,5 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: #6a5acd;
 }
+
+
