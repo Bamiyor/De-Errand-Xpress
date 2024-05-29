@@ -5,7 +5,7 @@ html, body{
     background-size: cover;
     background-attachment: fixed;
     width: 100vw;
-    min-height: 100vh;
+    min-height: 90vh;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@ html, body{
 .wrapper{
     position: absolute;
     width: 400px;
-    height: 550px;
+    height: 500px;
     background: transparent;
     border: 2px solid rgba(225, 225, 225, .5);
     border-radius: 20px;
