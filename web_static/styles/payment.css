@@ -86,5 +86,12 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
+<<<<<<< HEAD
   background: #0df024;
 }
+=======
+  background: #6a5acd;
+}
+
+
+>>>>>>> refs/remotes/origin/master
