@@ -6,6 +6,16 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(115deg, rgba(69, 231, 29, 0.8), rgba(41, 38, 35, 0.9));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Container styles */
 .container {
   width: 100%;
@@ -66,7 +76,7 @@ h1 {
 button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background: #d37575;
+  background: #000200;
   border: none;
   outline: none;
   border-radius: 6px;
@@ -76,5 +86,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #cd605a;
+  background: #0df024;
 }
