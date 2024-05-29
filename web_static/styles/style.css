@@ -1,4 +1,4 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,11 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 header {
-    background: url("/De-Errand-Xpress/web_static/images/gary-sandoz-IJtP_pWrMvM-unsplash\ \(1\).jpg") no-repeat center center/cover;
+    background: url("/web_static/images/gary-sandoz-IJtP_pWrMvM-unsplash\ \(1\).jpg") no-repeat center center/cover;
     color: #fff;
     height: 100vh;
 }
@@ -19,8 +19,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem 3rem;
 }
 
 .nav-links {
@@ -38,9 +37,11 @@ nav {
     font-size: 1.1rem;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo .logo-img {
+    max-width: 200px;
+    border: none;
+    margin: 0 auto;
+    display: block;
 }
 
 .menu-icon {
@@ -52,11 +53,6 @@ nav {
 .hero {
     text-align: center;
     margin-top: 10%;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
 }
 
 .hero p {
@@ -78,11 +74,11 @@ nav {
 }
 
 .login-button {
-  background: #0f0f0f;
+  background: #0e0101;
   color: #0a0909;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.1rem;
 }
 
@@ -91,8 +87,13 @@ nav {
 }
 
 section {
-    padding: 2rem 5%;
+    padding: 0rem 5%;
     text-align: center;
+}
+
+.hero h1 {
+    font-size: 1rem;
+    margin-bottom: 0rem;
 }
 
 h2 {
@@ -102,7 +103,7 @@ h2 {
 
 p {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 
 .service-cards {
@@ -112,23 +113,23 @@ p {
 }
 
 .service-card {
-    background: #f4f4f4;
-    padding: 1.5rem;
+    background: #11cd4c;
+    padding: 1.2rem;
     margin: 1rem;
-    flex-basis: 45%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 40%;
+    box-shadow: 0 4px 8px rgba(22, 10, 10, 0.1);
     border-radius: 5px;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
 }
 
 footer {
-    background: #333;
-    color: #fff;
-    padding: 2rem 5%;
+    background: #1a0505;
+    color: #14d83b;
+    padding: 2rem 2%;
     text-align: left;
 }
 
@@ -139,7 +140,7 @@ footer {
 }
 
 .footer-section {
-    flex-basis: 30%;
+    flex-basis: 20%;
     margin-bottom: 1rem;
 }
 
