@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - De Errand Xpress</title>
-    <link rel="stylesheet" href="cart.css">
+    <title>cart</title>
+    <link rel="stylesheet" href="/web_static/styles/cart.css">
 </head>
 <body>
     <div class="cart-container">
         <header>
-            <h1>My Cart</h1>
+            <div class="logo">
+                <img src="/web_static/images/errand_express.jpg" alt="De Errand Xpress Logo" class="logo-img">
+            </div>
         </header>
         <div class="cart-items">
             <!-- Vegetable Item -->
             <div class="cart-item">
-                <img src="vegetables.jpg" alt="Vegetables" class="item-image">
+                <img src="/web_static/images/xvegetables.jpg" alt="Vegetables" class="item-image">
                 <div class="item-details">
                     <h2 class="item-name">Vegetables</h2>
                     <p class="item-description">Fresh and organic vegetables</p>
@@ -29,7 +31,7 @@
             </div>
             <!-- Tomato Item -->
             <div class="cart-item">
-                <img src="tomatoes.jpg" alt="Tomatoes" class="item-image">
+                <img src="/web_static/images/tomatos.jpg" alt="Tomatoes" class="item-image">
                 <div class="item-details">
                     <h2 class="item-name">Tomatoes</h2>
                     <p class="item-description">Red tomatoes</p>
@@ -44,7 +46,7 @@
             </div>
             <!-- Onion Item -->
             <div class="cart-item">
-                <img src="onions.jpg" alt="Onions" class="item-image">
+                <img src="/web_static/images/onions.jpg" alt="Onions" class="item-image">
                 <div class="item-details">
                     <h2 class="item-name">Onions</h2>
                     <p class="item-description">Fresh onions</p>
@@ -59,7 +61,7 @@
             </div>
             <!-- Groundnut Oil Item -->
             <div class="cart-item">
-                <img src="groundnut-oil.jpg" alt="Groundnut Oil" class="item-image">
+                <img src="/web_static/images/oils.jpg" alt="Groundnut Oil" class="item-image">
                 <div class="item-details">
                     <h2 class="item-name">Groundnut Oil</h2>
                     <p class="item-description">Groundnut oil</p>
@@ -74,7 +76,7 @@
             </div>
             <!-- Rice Item -->
             <div class="cart-item">
-                <img src="rice.jpg" alt="Rice" class="item-image">
+                <img src="/web_static/images/rice-garri-semo.jpg" alt="Rice" class="item-image">
                 <div class="item-details">
                     <h2 class="item-name">Rice</h2>
                     <p class="item-description">Long grain rice</p>
@@ -89,10 +91,10 @@
             </div>
             <!-- Beans Item -->
             <div class="cart-item">
-                <img src="beans.jpg" alt="Beans" class="item-image">
+                <img src="/web_static/images/yam.jpg" alt="Yam" class="item-image">
                 <div class="item-details">
-                    <h2 class="item-name">Beans</h2>
-                    <p class="item-description">Beans</p>
+                    <h2 class="item-name">Yam_more</h2>
+                    <p class="item-description">Yam-more</p>
                     <p class="item-price">$8.00</p>
                     <div class="item-quantity">
                         <button class="quantity-btn">-</button>
@@ -104,10 +106,10 @@
             </div>
             <!-- Garri Item -->
             <div class="cart-item">
-                <img src="garri.jpg" alt="Garri" class="item-image">
+                <img src="/web_static/images/fruit.jpg" alt="fruiti" class="item-image">
                 <div class="item-details">
-                    <h2 class="item-name">Garri</h2>
-                    <p class="item-description">Yellow garri</p>
+                    <h2 class="item-name">Fruit</h2>
+                    <p class="item-description">Fruit</p>
                     <p class="item-price">$7.00</p>
                     <div class="item-quantity">
                         <button class="quantity-btn">-</button>
@@ -118,9 +120,10 @@
                 <button class="remove-item-btn">Remove</button>
             </div>
         </div>
+        <!-- Inside the cart-summary div -->
         <div class="cart-summary">
             <p class="subtotal">Subtotal: $55.00</p>
-            <button class="checkout-btn">Checkout</button>
+            <a href="payment.html" class="checkout-btn">Checkout</a>
         </div>
     </div>
 </body>
