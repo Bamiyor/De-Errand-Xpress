@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+!/usr/bin/python3
 from errand_models.errand_models import User
 from errand_models import storage
 from api.v1.views import app_views
