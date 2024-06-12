@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
 from flask import request, abort, jsonify, make_response
 from flask_apispec import doc, use_kwargs, marshal_with
@@ -82,6 +83,9 @@ from flask import request, abort, jsonify, make_response
 from flask_restful import Resource
 from bcrypt import hashpw, gensalt
 # from api.v1.app import db
+=======
+!/usr/bin/python3
+>>>>>>> refs/remotes/origin/master
 from errand_models.errand_models import User
 from errand_models import storage
 from api.v1.views import app_views
