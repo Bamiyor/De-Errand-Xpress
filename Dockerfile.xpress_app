@@ -1,0 +1,39 @@
+# /Users/exceptionx/De-Errand-Xpress/Dockerfile.xpress_app
+
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    libmariadb-dev-compat \
+    libmariadb-dev \
+    gcc \
+    pkg-config && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Flask
+RUN pip install flask
+
+# Copy requirements file
+COPY xpress_app/requirements.txt /app/requirements.txt
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY xpress_app /app/xpress_app
+
+# Set environment variable for Flask
+COPY errand_models /app/errand_models
+ENV FLASK_APP=xpress_app/app.py
+ENV PYTHONPATH=/app/xpress_app:/app
+
+# Run the Flask application
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

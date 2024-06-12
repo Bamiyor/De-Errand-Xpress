@@ -1,0 +1,55 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    libmariadb-dev-compat \
+    libmariadb-dev \
+    gcc \
+    pkg-config && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Cython
+RUN pip install cython
+RUN pip install --upgrade flask flasgger
+RUN pip install flasgger>=0.9.5
+
+# Copy requirements file
+COPY requirements.txt /app/requirements.txt
+
+RUN apt-get update && apt-get install -y git
+RUN git clone https://github.com/jmcarp/flask-apispec.git && cd flask-apispec && pip install .
+
+# Install Python dependencies
+RUN sed -i 's/flask.views.MethodViewType/flask.views.MethodViewType/' /usr/local/lib/python3.9/site-packages/flask_apispec/views.py
+RUN sed -i 's/from flask import Markup/from markupsafe import Markup/' /usr/local/lib/python3.9/site-packages/flasgger/base.py
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip freeze > requirements.txt
+RUN pip uninstall -r requirements.txt -y
+RUN pip install -r requirements.txt
+
+# Copy the rest of the application
+COPY . .
+
+# Ensure the .env file is included in the Docker image
+COPY .env .env
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Set environment variable for Flask
+# Ensure errand_models is in the PYTHONPATH
+ENV PYTHONPATH="${PYTHONPATH}:/app"
+ENV FLASK_APP=api.app
+# ENV FLASK_APP=api/app.py
+# ENV PYTHONPATH=/app
+
+# Run the Flask application
+CMD ["python", "app.py"]

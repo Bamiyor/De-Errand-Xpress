@@ -8,12 +8,13 @@ class DBStorage:
     __engine = None
     __session = None
 
+
     def __init__(self):
-        EXPRESS_MYSQL_USER = getenv('EXPRESS_MYSQL_USER')
-        EXPRESS_MYSQL_PWD = getenv('EXPRESS_MYSQL_PWD')
-        EXPRESS_MYSQL_HOST = getenv('EXPRESS_MYSQL_HOST')
-        EXPRESS_MYSQL_DB = getenv('EXPRESS_MYSQL_DB')
-        EXPRESS_ENV = getenv('EXPRESS_ENV')
+        EXPRESS_MYSQL_USER = 'xpress_user'
+        EXPRESS_MYSQL_PWD = 'xpress_password'
+        EXPRESS_MYSQL_HOST = 'localhost'
+        EXPRESS_MYSQL_DB = 'xpress_db'
+        EXPRESS_ENV = 'dev'
         self.__engine = create_engine(f'mysql+mysqldb://{EXPRESS_MYSQL_USER}:{EXPRESS_MYSQL_PWD}@{EXPRESS_MYSQL_HOST}/{EXPRESS_MYSQL_DB}')
         if EXPRESS_ENV == "test":
             Base.metadata.drop_all(self.__engine)

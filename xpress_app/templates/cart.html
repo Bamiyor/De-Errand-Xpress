@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cart.css') }}">
+</head>
+<body>
+    <div class="cart-container">
+        <header>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/errand_express.jpg') }}" alt="De Errand Xpress Logo" class="logo-img">
+            </div>
+        </header>
+        <div class="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-summary">
+            <p class="subtotal">Subtotal: $0.00</p>
+            <a href="{{ url_for('payment') }}" class="checkout-btn">Checkout</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='c_script.js') }}"></script>
+</body>
+</html>

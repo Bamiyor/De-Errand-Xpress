@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/payment.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Billing Address</h1>
+        <div id="Billing-form">
+            <div class="form-group">
+                <label for="card-address">Full Name:</label>
+                <input type="text" id="card-address" name="card-address" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="email-address">Email Address:</label>
+                <input type="text" id="email-address" name="email-address" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="home-address">Home Address:</label>
+                <input type="text" id="home-address" name="home-address" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="zip-code">Zip Code:</label>
+                <input type="number" id="zip-code" name="zip-code" placeholder="" required>
+            </div>
+        </div>
+
+        <h1>Payment</h1>
+        <div class="payment-form img">
+            <span>Card Accepted</span>
+            <img src="{{ url_for('static', filename='images/love-1791998_credit-card-icons.jpg') }}" alt="Credit Cards">
+        </div>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="card-name">Card Name:</label>
+                <input type="text" id="card-name" name="card-name" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="expiration-month">Exp. Month:</label>
+                <input type="text" id="expiration-month" name="expiration-month" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="expiration-year">Exp. Year:</label>
+                <input type="text" id="expiration-year" name="expiration-year" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="" required>
+            </div>
+            <form id="payment-form" onsubmit="handlePayment(event)">
+                <button type="submit">Pay Now</button>
+            </form>
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        function handlePayment(event) {
+            event.preventDefault(); // Prevent form submission
+    
+            // Get form data
+            const formData = new FormData(event.target);
+            const paymentData = Object.fromEntries(formData.entries());
+    
+            // Make a POST request to the payment API endpoint
+            fetch('/payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(paymentData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Payment successful:', data);
+                // Redirect or handle success as needed
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

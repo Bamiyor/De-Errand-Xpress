@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: xpress_db
+      MYSQL_USER: xpress_user
+      MYSQL_PASSWORD: xpress_password
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/app
+    command: python /app/app.py
+    environment:
+      FLASK_APP: api/app.py
+
+  xpress_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.xpress_app
+    environment:
+      FLASK_APP: xpress_app/app.py
+      FLASK_ENV: development
+    ports:
+      - "5002:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+volumes:
+  db_data:

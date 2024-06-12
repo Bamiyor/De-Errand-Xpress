@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="/static/styles/product.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Xpress Product</h1>
+        </header>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/rice-garri-semo.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>Bags: $90.99</h2>
+                <p>Rice, Beans, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/tomatos.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$4.99</h2>
+                <p>Tomatoes, Pepper, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/yam.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$10</h2>
+                <p>Yam, Sweet/Irish-Potato, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/xvegetables.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$2.99</h2>
+                <p>Vegetables of all kinds and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/pmore.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$2.99</h2>
+                <p>Cucumber, Cabbage, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/onions.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$1.99</h2>
+                <p>Onions, Carrots, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/oils.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$19.99</h2>
+                <h2>Chicken: $5 1kg</h2>
+                <p>Oils, Chicken, and many more</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/fruit.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$2.99 1kg</h2>
+                <p>All Fruits, and many more get delivered</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/Fish-Market.jpg') }}" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>$6.99 1kg</h2>
+                <p>All Kinds of fishes, and many more get delivered</p>
+                <button><a href="{{ url_for('cart') }}" class="checkout-btn">Make Selections</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

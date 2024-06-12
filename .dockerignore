@@ -6,4 +6,10 @@ __pycache__
 *.sqlite3
 *.log
 .env
+.Python
+env
+venv
+.build
+Dockerfile*
+!.env
 
