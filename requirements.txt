@@ -15,9 +15,9 @@ charset-normalizer==3.3.2
 click
 Jinja2>=3.0
 markupsafe
+PyYAML
 Flask-RESTful==0.3.9
 Flask-Migrate==3.1.0
-PyYAML
 marshmallow==3.11.1
 bcrypt==3.2.0
 SQLAlchemy
